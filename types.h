@@ -59,6 +59,13 @@ static inline unsigned int xorshift32(void) {
 #define STAGE_TLS_HANDSHAKE 4
 #define STAGE_H2_PREFACE 5
 #define STAGE_ATTACKING 6
+#define STAGE_SOCKS4_CONN 7
+#define STAGE_HTTP_CONNECT 8
+
+/* proxy type */
+#define PROXY_TYPE_SOCKS5 0
+#define PROXY_TYPE_SOCKS4 1
+#define PROXY_TYPE_HTTP   2
 
 #define PAYLOAD_CACHE_COUNT 64
 #define STABLE_PAYLOAD_SIZE 524288
@@ -74,6 +81,7 @@ typedef struct {
     int is_dead;
     long long last_fail_time;
     volatile int active_conns;
+    int type; /* PROXY_TYPE_SOCKS5=0, PROXY_TYPE_SOCKS4=1, PROXY_TYPE_HTTP=2 */
 } Proxy;
 
 typedef struct {
