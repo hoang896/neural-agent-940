@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
         LOG_INFO("Running in DRY-RUN mode. Bypassing network interface, XDP loading, and network socket traffic.");
     }
     if (use_proxies) {
-        load_proxies("proxy.txt");
+        load_proxies("proxies.txt");
     } else {
         LOG_INFO("Bypassing proxies.txt as requested by --no-proxies");
     }
