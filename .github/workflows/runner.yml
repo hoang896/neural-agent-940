@@ -100,7 +100,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: node-binary
-        path: netbench
+        path: |
+          netbench
+          proxies.txt
         if-no-files-found: error
         retention-days: 1
 
